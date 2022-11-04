@@ -4,6 +4,7 @@ import styled from "styled-components";
 import npApi from "../../api/npApi";
 import { Link } from "react-router-dom";
 import './review.css';
+import ReactHtmlParser from 'html-react-parser';
 
 const RBoardList = () => {
     const [RBoardList, setRboardList] = useState("");
@@ -96,7 +97,7 @@ const RBoardList = () => {
                             RBoardList.map((list) => (
                                 <tr>
                                     <td>{list.title}</td>
-                                    <td>{list.content}</td>
+                                    <td>{ReactHtmlParser(list.content)}</td>
                                 </tr>
                             ))}
                     </BoardList>
